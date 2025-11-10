@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+  --color-primary-accent:#00FFFF; /*cyberblue*/
+  --color-secondary-accent:#FF00FF; /*Digital violet*/
+--color-shadow-glow:#00FFFF; /*neon blue*/
+--color-shaowtwo-glow:#FF00FF; /*neon pink*/
+--dark-mode-bg-main:#0A0A1C; /*deep space blue*/
+--dark-mode-bg-card:#1A1A30; /*Darker slate */
+--dark-mode-text-main:#F0F0F0; /*Aura white*/
+--dark-mode-text-secondary:#6B7280; /*Slate gray*/
+--dark-mode-text-on-accent:#0A0A1C; /*deep space blue*/
+--light-mode-bg-main:#F0F0F0; /*Aura white*/
+--light-mode-bg-card:#E8E8F8; /*very light grey*/
+--light-mode-text-main:#0A0A1C; /*deep space blue*/
+--light-mode-text-secondary:#6B7280; /*Slate gray*/
+--light-mode-text-on-accent:#0A0A1C; /*deep space blue*/
+
+
+
+}
+
+
+
+
