@@ -1,26 +1,108 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme{
-  --color-primary-accent:#00FFFF; /*cyberblue*/
-  --color-secondary-accent:#FF00FF; /*Digital violet*/
---color-shadow-glow:#00FFFF; /*neon blue*/
---color-shaowtwo-glow:#FF00FF; /*neon pink*/
---dark-mode-bg-main:#0A0A1C; /*deep space blue*/
---dark-mode-bg-card:#1A1A30; /*Darker slate */
---dark-mode-text-main:#F0F0F0; /*Aura white*/
---dark-mode-text-secondary:#6B7280; /*Slate gray*/
---dark-mode-text-on-accent:#0A0A1C; /*deep space blue*/
---light-mode-bg-main:#F0F0F0; /*Aura white*/
---light-mode-bg-card:#E8E8F8; /*very light grey*/
---light-mode-text-main:#0A0A1C; /*deep space blue*/
---light-mode-text-secondary:#6B7280; /*Slate gray*/
---light-mode-text-on-accent:#0A0A1C; /*deep space blue*/
+/* 🌗 Website Theme Variables */
+@theme {
+  /* LIGHT MODE COLORS */
+  --color-body-bglight: #F8F7FB;
+  --color-body-textlight: #0A0A1C;
 
+  --color-navbar-bglight: rgba(255, 255, 255, 0.55);
+  --color-navbar-textlight: #0B0706;
 
+  --color-card-bglight: #FFFFFF;
+  --color-card-borderlight: rgba(0, 0, 0, 0.08);
+  --color-card-textlight: #1E1E24;
 
+  --color-btn-bglight: #E2510E;
+  --color-btn-hoverlight: #F26A2E;
+  --color-btn-textlight: #FFFFFF;
+
+  --color-shadowlight: rgba(0, 0, 0, 0.1);
+  --color-glowlight: #FF6B6B;
+  --color-blurlight: rgba(255, 255, 255, 0.3);
+
+  --color-linklight: #682423;
+  --color-link-hoverlight: #9B3938;
+
+  /* DARK MODE COLORS */
+  --color-body-bgdark: #0B0706;
+  --color-body-textdark: #F5F5F7;
+
+  --color-navbar-bgdark: rgba(30, 20, 40, 0.35);
+  --color-navbar-textdark: #F0F0F0;
+
+  --color-card-bgdark: #1A1A30;
+  --color-card-borderdark: rgba(255, 255, 255, 0.1);
+  --color-card-textdark: #E8E8F8;
+
+  --color-btn-bgdark: #D45170;
+  --color-btn-hoverdark: #E2728F;
+  --color-btn-textdark: #0A0A1C;
+
+  --color-shadowdark: rgba(255, 255, 255, 0.08);
+  --color-glowdark: #6C63FF;
+  --color-blurdark: rgba(0, 0, 0, 0.3);
+
+  --color-linkdark: #D94C3B;
+  --color-link-hoverdark: #F26A2E;
 }
 
+/* 🌗 Body */
+body {
+  @apply dark:bg-body-bgdark bg-body-bglight backdrop-blur-sm transition-colors duration-500 ease-in-out;
+}
 
+/* 🌟 Navbar */
+.navbar {
+  @apply bg-navbar-bglight dark:bg-navbar-bgdark
+         text-navbar-textlight dark:text-navbar-textdark
+         m-8 sticky top-0
+         rounded-tl-full rounded-tr-2xl rounded-bl-[1rem] rounded-br-[1rem]
+         shadow-lg;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.15),
+    inset 0 6px 8px -4px rgba(0, 0, 0, 0.3),
+    inset 0 -6px 8px -4px rgba(0, 0, 0, 0.25),
+    inset 6px 0 8px -4px rgba(0, 0, 0, 0.25),
+    inset -6px 0 8px -4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.dark .navbar {
+  box-shadow:
+    0 0 25px rgba(108, 99, 255, 0.25),
+    inset 0 4px 10px rgba(255, 255, 255, 0.08),
+    inset 0 -4px 10px rgba(255, 255, 255, 0.06),
+    inset 6px 0 10px rgba(255, 255, 255, 0.05),
+    inset -6px 0 10px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
+/* ✨ Nav text underline glow */
+.navtext {
+  @apply relative transition-all duration-300 underline-offset-4 cursor-pointer;
+}
+
+.navtext::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-[2.5px] transition-all duration-300;
+  background-color: rgb(29, 2, 2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 1);
+}
+
+.dark .navtext::after {
+  background-color: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.navtext:hover::after,
+.navtext.active::after {
+  @apply w-full;
+}
+.footer {
+  @apply w-full text-center bg-navbar-bglight dark:bg-navbar-bgdark
+         text-navbar-textlight dark:text-navbar-textdark
+         transition-colors duration-500 ease-in-out;
+}
